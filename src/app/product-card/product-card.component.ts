@@ -1,8 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
 })
@@ -21,4 +22,7 @@ export class ProductCardComponent {
 
   @Input()
   photoUrl!: string;
+
+  @Input()
+  createDate!: Date;
 }

@@ -14,4 +14,6 @@ export class App {
   company = '博碩文化';
 
   photoUrl = 'https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img';
+
+  createDate = new Date('2025/4/9');
 }
