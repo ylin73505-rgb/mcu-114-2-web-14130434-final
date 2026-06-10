@@ -1,5 +1,5 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { Component, EventEmitter, Input, Output, booleanAttribute, numberAttribute } from '@angular/core';
+import { Component, input, model, numberAttribute } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
@@ -9,24 +9,17 @@ import { Component, EventEmitter, Input, Output, booleanAttribute, numberAttribu
   host: { class: 'app-product-card' },
 })
 export class ProductCardComponent {
-  @Input({ required: true, transform: numberAttribute })
-  id!: number;
+  readonly id = input.required<number, string | number>({ transform: numberAttribute });
 
-  @Input()
-  productName!: string;
+  readonly productName = input<string>();
 
-  @Input()
-  author!: string;
+  readonly authors = input<string[]>();
 
-  @Input()
-  company!: string;
+  readonly company = input<string>();
 
-  @Input()
-  photoUrl!: string;
+  readonly photoUrl = input<string>();
 
-  @Input()
-  createDate!: Date;
+  readonly createDate = input<Date>();
 
-  @Input({ transform: numberAttribute })
-  price!: number;
+  readonly price = input<number, string | number>(0, { transform: numberAttribute });
 }

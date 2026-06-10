@@ -1,12 +1,16 @@
-<img [src]="photoUrl" />
+<img [src]="photoUrl()" />
 <div class="content">
-  <strong>{{ id }}. {{ productName }}</strong>
-  <span>{{ createDate | date: 'yyyy-MM-dd' }}</span>
+  <strong>{{ id() }}. {{ productName() }}</strong>
+  <span>{{ createDate() | date: 'yyyy-MM-dd' }}</span>
 </div>
-<div>{{ author }}</div>
+@for (author of authors(); track $index) {
+<span>{{ author }}</span>
+@if (!$last) {
+<span>、</span>
+} }
 <div class="company">
-  <span>{{ company }}</span>
-  <span>{{ price | currency : '$' : 'symbol' : '4.0' }}</span>
+  <span>{{ company() }}</span>
+  <span>{{ price() | currency : '$' : 'symbol' : '4.0' }}</span>
 </div>
 <div class="button">
   <button type="button">明細</button>
