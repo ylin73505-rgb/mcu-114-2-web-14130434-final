@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
 
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCardListComponent } from './product-card-list/product-card-list.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCardComponent],
+  imports: [ProductCardListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class App {
-  productName = '書籍 A';
-  author = '作者甲、作者乙、作者丙';
-  company = '博碩文化';
-
-  photoUrl = 'https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img';
-
-  createDate = new Date('2025/4/9');
-
-  price = 1580;
-}
+export class App {}

@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, Output, booleanAttribute, numberAttribu
   imports: [DatePipe, CurrencyPipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
+  host: { class: 'app-product-card' },
 })
 export class ProductCardComponent {
   @Input({ required: true, transform: numberAttribute })
