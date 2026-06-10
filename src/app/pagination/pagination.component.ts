@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, numberAttribute, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, computed, input, model, numberAttribute, output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -6,23 +6,16 @@ import { Component, EventEmitter, Input, numberAttribute, OnChanges, OnInit, Out
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.scss',
 })
-export class PaginationComponent implements OnChanges {
-  @Input({ required: true, transform: numberAttribute })
-  totalCount!: number;
+export class PaginationComponent {
+  readonly totalCount = input.required<number, string | number>({ transform: numberAttribute });
 
-  @Input({ required: true, transform: numberAttribute })
-  pageSize!: number;
+  readonly pageSize = input.required<number, string | number>({ transform: numberAttribute });
 
-  @Input({ required: true, transform: numberAttribute })
-  pageIndex!: number;
-  @Output()
-  pageIndexChange = new EventEmitter<number>();
+  readonly pageIndex = model.required<number>();
 
-  range: number[] = [];
-
-  ngOnChanges(): void {
-    const totalPages = Math.ceil(this.totalCount / this.pageSize);
+  readonly range = computed(() => {
+    const totalPages = Math.ceil(this.totalCount() / this.pageSize());
     const length = Math.min(2, Math.max(0, totalPages));
-    this.range = Array.from({ length }, (_, i) => i + 1);
-  }
+    return Array.from({ length }, (_, i) => i + 1);
+  });
 }
