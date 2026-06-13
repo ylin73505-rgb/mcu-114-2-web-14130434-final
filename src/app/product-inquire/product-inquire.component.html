@@ -1,0 +1,4 @@
+<div class="search-container">
+  <input type="text" placeholder="產品名稱查詢" [(ngModel)]="searchQuery" (keyup.enter)="onSearch()" class="search-input" />
+  <button (click)="onSearch()" class="search-button">查詢</button>
+</div>
