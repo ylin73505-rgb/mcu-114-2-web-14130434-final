@@ -15,7 +15,6 @@ export class PaginationComponent {
 
   readonly range = computed(() => {
     const totalPages = Math.ceil(this.totalCount() / this.pageSize());
-    const length = Math.min(2, Math.max(0, totalPages));
-    return Array.from({ length }, (_, i) => i + 1);
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
   });
 }

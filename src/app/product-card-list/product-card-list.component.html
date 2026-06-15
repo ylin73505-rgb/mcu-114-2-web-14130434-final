@@ -7,7 +7,7 @@
   [photoUrl]="product.photoUrl"
   [createDate]="product.createDate"
   [price]="product.price"
+  (remove)="remove.emit(product)"
   (view)="view.emit(product)"
 ></app-product-card>
 }
-<app-pagination [totalCount]="products().length" [(pageIndex)]="pageIndex" pageSize="2"></app-pagination>
