@@ -101,8 +101,8 @@ export class ProductService {
   getList(name: string | undefined, index: number, size: number): { data: Product[]; count: number } {
     const startIndex = (index - 1) * size;
     const endIndex = startIndex + size;
-    const data = name ? this._data.filter((item) => item.name === name) : [...this._data];
-    return { data: data.slice(startIndex, endIndex), count: this._data.length };
+    const filtered = name ? this._data.filter((item) => item.name.toLowerCase().includes(name.toLowerCase())) : [...this._data];
+    return { data: filtered.slice(startIndex, endIndex), count: filtered.length };
   }
 
   getById(productId: number): Product {

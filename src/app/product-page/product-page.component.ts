@@ -25,20 +25,28 @@ export class ProductPageComponent {
 
   protected readonly products = signal<Product[]>([]);
 
+  protected readonly searchQuery = signal('');
+
   constructor() {
     effect(() => {
       const pageIndex = this.pageIndex();
       const pageSize = this.pageSize();
-      this.getProducts(pageIndex, pageSize);
+      const searchQuery = this.searchQuery();
+      this.getProducts(searchQuery, pageIndex, pageSize);
     });
+  }
+
+  onSearch(query: string): void {
+    this.searchQuery.set(query);
+    this.pageIndex.set(1);
   }
 
   onView(product: Product): void {
     this.router.navigate(['product', product.id]);
   }
 
-  private getProducts(pageIndex: number, pageSize: number): void {
-    const { data, count } = this.productService.getList(undefined, pageIndex, pageSize);
+  private getProducts(name: string, pageIndex: number, pageSize: number): void {
+    const { data, count } = this.productService.getList(name || undefined, pageIndex, pageSize);
     this.products.set(data);
     this.totalCount.set(count);
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,9 +11,9 @@ import { FormsModule } from '@angular/forms';
 export class ProductInquireComponent {
   searchQuery: string = '';
 
+  readonly search = output<string>();
+
   onSearch(): void {
-    if (this.searchQuery.trim()) {
-      console.log('搜尋產品:', this.searchQuery);
-    }
+    this.search.emit(this.searchQuery.trim());
   }
 }
