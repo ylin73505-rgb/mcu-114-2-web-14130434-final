@@ -12,7 +12,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
 })
-export class ProductPageComponent {
+export class ProductPageComponent implements OnInit {
   private readonly router = inject(Router);
 
   private readonly productService = inject(ProductService);
@@ -45,9 +45,10 @@ export class ProductPageComponent {
     this.router.navigate(['product', product.id]);
   }
 
-  private getProducts(name: string, pageIndex: number, pageSize: number): void {
-    const { data, count } = this.productService.getList(name || undefined, pageIndex, pageSize);
-    this.products.set(data);
-    this.totalCount.set(count);
+  private getProducts(pageIndex: number, pageSize: number): void {
+    this.productService.getList(undefined, pageIndex, this.pageSize).subscribe(({ data, count }) => {
+      this.products.set(data);
+      this.totalCount.set(count);
+    });
   }
 }
