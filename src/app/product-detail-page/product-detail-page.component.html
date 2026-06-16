@@ -3,11 +3,7 @@
   <h2>{{ product().name }}</h2>
   <div>
     <strong>作者</strong>
-    <span>
-      @for (author of product().authors; track $index) {
-      <span>{{ author }}</span>
-      }
-    </span>
+    <span>{{ product().authors }}</span>
   </div>
   <div>
     <strong>公司</strong>
