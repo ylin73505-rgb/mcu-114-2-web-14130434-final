@@ -4,13 +4,13 @@ export class Product {
     Object.assign(this, initData);
   }
 
-  id!: number;
+  id!: string;
 
   name!: string;
 
   company!: string;
 
-  authors!: string;
+  authors!: string[];
 
   price!: number;
 
