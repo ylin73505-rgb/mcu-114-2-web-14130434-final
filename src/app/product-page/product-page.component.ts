@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductCardListComponent } from '../product-card-list/product-card-list.component';
 import { ProductInquireComponent } from '../product-inquire/product-inquire.component';
@@ -35,6 +35,9 @@ export class ProductPageComponent implements OnInit {
       this.getProducts(searchQuery, pageIndex, pageSize);
     });
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   onSearch(query: string): void {
     this.searchQuery.set(query);
@@ -45,8 +48,8 @@ export class ProductPageComponent implements OnInit {
     this.router.navigate(['product', product.id]);
   }
 
-  private getProducts(pageIndex: number, pageSize: number): void {
-    this.productService.getList(undefined, pageIndex, this.pageSize).subscribe(({ data, count }) => {
+  private getProducts(searchQuery: string, pageIndex: number, pageSize: number): void {
+    this.productService.getList(undefined, pageIndex, this.pageSize()).subscribe(({ data, count }) => {
       this.products.set(data);
       this.totalCount.set(count);
     });
