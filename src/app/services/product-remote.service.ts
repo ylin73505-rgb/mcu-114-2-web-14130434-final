@@ -14,21 +14,6 @@ export class ProductRemoteService extends ProductService {
   private readonly httpClient = inject(HttpClient);
 
   override getList(name: string | undefined, index: number, size: number): Observable<{ data: Product[]; count: number }> {
-    return this.httpClient.get<Product[]>(this.url).pipe(
-      map((data) => {
-        const filtered = name ? data.filter((item) => item.name.toLowerCase().includes(name.toLowerCase())) : data;
-        const startIndex = (index - 1) * size;
-        const endIndex = startIndex + size;
-
-        return {
-          data: filtered.slice(startIndex, endIndex),
-          count: filtered.length,
-        };
-      })
-    );
-  }
-
-  override getById(productId: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.url}/${productId}`);
+    return this.httpClient.get<Product[]>(this.url).pipe(map((data) => ({ data, count: data.length })));
   }
 }
