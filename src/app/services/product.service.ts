@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable, delay, filter, map, mergeMap, of, tap, toArray } from 'rxjs';
 import { Product } from '../model/product';
-import { delay, filter, map, mergeMap, Observable, of, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  remove(id: number) {
+    throw new Error('Method not implemented.');
+  }
   private _data: Product[] = [
     new Product({
       id: 1,

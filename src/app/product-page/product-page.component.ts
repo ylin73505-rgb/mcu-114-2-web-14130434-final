@@ -1,4 +1,4 @@
-import { Component, effect, inject, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductCardListComponent } from '../product-card-list/product-card-list.component';
 import { ProductInquireComponent } from '../product-inquire/product-inquire.component';
@@ -12,7 +12,7 @@ import { PaginationComponent } from '../pagination/pagination.component';
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.scss',
 })
-export class ProductPageComponent implements OnInit {
+export class ProductPageComponent {
   private readonly router = inject(Router);
 
   private readonly productService = inject(ProductService);
@@ -35,9 +35,6 @@ export class ProductPageComponent implements OnInit {
       this.getProducts(searchQuery, pageIndex, pageSize);
     });
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   onSearch(query: string): void {
     this.searchQuery.set(query);
@@ -49,7 +46,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   private getProducts(searchQuery: string, pageIndex: number, pageSize: number): void {
-    this.productService.getList(undefined, pageIndex, this.pageSize()).subscribe(({ data, count }) => {
+    this.productService.getList(searchQuery || undefined, pageIndex, pageSize).subscribe(({ data, count }) => {
       this.products.set(data);
       this.totalCount.set(count);
     });
