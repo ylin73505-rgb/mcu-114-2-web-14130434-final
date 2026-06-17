@@ -52,4 +52,8 @@ export class CartService {
   remove(productId: string): void {
     this.itemsSignal.update((items) => items.filter((item) => item.product.id !== productId));
   }
+
+  clear(): void {
+    this.itemsSignal.set([]);
+  }
 }

@@ -1,19 +1,19 @@
-<form class="checkout-grid">
+<form class="checkout-grid" #checkoutForm="ngForm" (ngSubmit)="onSubmit(checkoutForm)">
   <section class="customer">
     <h2>基本資料</h2>
     <div class="field">
       <label for="customer-name">姓名</label>
-      <input />
+      <input id="customer-name" name="customerName" required ngModel />
       <span class="hint">請輸入姓名</span>
     </div>
     <div class="field">
       <label for="customer-address">地址</label>
-      <input />
+      <input id="customer-address" name="customerAddress" required ngModel />
       <span class="hint">請輸入地址</span>
     </div>
     <div class="field">
       <label for="customer-phone">電話</label>
-      <input />
+      <input id="customer-phone" name="customerPhone" required ngModel />
       <span class="hint">請輸入電話</span>
     </div>
   </section>
@@ -50,7 +50,9 @@
       }
     </div>
     <div class="cart-summary">
-      <button type="submit" class="submit-btn">送出訂單({{ cartService.totalAmount() | currency : '$' : 'symbol' : '4.0' }})</button>
+      <button type="submit" class="submit-btn" [disabled]="checkoutForm.invalid">
+        送出訂單({{ cartService.totalAmount() | currency : '$' : 'symbol' : '4.0' }})
+      </button>
     </div>
     } @else {
     <p class="empty">購物車目前沒有商品</p>
