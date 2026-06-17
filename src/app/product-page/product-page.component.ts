@@ -5,6 +5,7 @@ import { ProductInquireComponent } from '../product-inquire/product-inquire.comp
 import { Product } from '../model/product';
 import { ProductService } from '../services/product.service';
 import { PaginationComponent } from '../pagination/pagination.component';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-page',
@@ -16,6 +17,8 @@ export class ProductPageComponent {
   private readonly router = inject(Router);
 
   private readonly productService = inject(ProductService);
+
+  private readonly cartService = inject(CartService);
 
   protected readonly pageIndex = signal(1);
 
@@ -43,6 +46,10 @@ export class ProductPageComponent {
 
   onView(product: Product): void {
     this.router.navigate(['product', 'view', product.id]);
+  }
+
+  onAddToCart(product: Product): void {
+    this.cartService.add(product);
   }
 
   private getProducts(searchQuery: string, pageIndex: number, pageSize: number): void {

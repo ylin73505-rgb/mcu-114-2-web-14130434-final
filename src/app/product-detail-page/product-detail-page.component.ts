@@ -1,8 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, OnInit, inject, input, numberAttribute, signal } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../model/product';
-import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -15,15 +15,10 @@ export class ProductDetailPageComponent {
 
   private readonly router = inject(Router);
 
-  private readonly productService = inject(ProductService);
+  private readonly cartService = inject(CartService);
 
-  onEdit(): void {
-    this.router.navigate(['product', 'form', this.product().id]);
-  }
-
-  onRemove(): void {
-    this.productService.remove(this.product().id);
-    this.router.navigate(['products']);
+  onAddToCart(): void {
+    this.cartService.add(this.product());
   }
 
   onBack(): void {

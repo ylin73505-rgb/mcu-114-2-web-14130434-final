@@ -20,29 +20,40 @@
 
   <section class="cart">
     <h2>購買項目</h2>
+    @if (cartService.itemTypes() > 0) {
     <div class="cart-list" role="list" aria-label="購買項目清單">
+      @for (item of cartService.items(); track item.product.id; let index = $index) {
       <article class="cart-row" role="listitem">
-        <div class="row-index"></div>
+        <div class="row-index">{{ index + 1 }}</div>
 
         <div class="row-title">
-          <div class="item-name"></div>
+          <div class="item-name">{{ item.product.name }}</div>
         </div>
 
         <label class="qty-field" aria-label="數量">
-          <input />
+          <input
+            class="qty-input"
+            type="number"
+            min="0"
+            [value]="item.quantity"
+            (input)="onQuantityChange(item.product.id, $any($event.target).value)"
+          />
         </label>
 
         <div class="item-price">
-          <div class="unit-price"></div>
-          <div class="line-subtotal"></div>
+          <div class="unit-price">{{ item.product.price | currency : '$' : 'symbol' : '4.0' }}</div>
+          <div class="line-subtotal">{{ item.product.price * item.quantity | currency : '$' : 'symbol' : '4.0' }}</div>
         </div>
 
-        <button type="button" class="remove-btn">刪除</button>
+        <button type="button" class="remove-btn" (click)="cartService.remove(item.product.id)">刪除</button>
       </article>
+      }
     </div>
     <div class="cart-summary">
-      <button type="submit" class="submit-btn">送出訂單</button>
+      <button type="submit" class="submit-btn">送出訂單{{ cartService.totalAmount() | currency : '$' : 'symbol' : '4.0' }}</button>
     </div>
+    } @else {
     <p class="empty">購物車目前沒有商品</p>
+    }
   </section>
 </form>

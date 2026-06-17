@@ -3,6 +3,7 @@
 
   a {
     display: inline-block;
+    position: relative;
     padding: 10px 20px;
     border-radius: 20px;
     color: #005ccb;
@@ -22,5 +23,20 @@
     &.active {
       background-color: #005ccb1a;
     }
+  }
+
+  .cart-count {
+    display: inline-grid;
+    min-width: 18px;
+    height: 18px;
+    margin-left: 4px;
+    padding: 1.5px;
+    place-items: center;
+    border-radius: 999px;
+    background: #0033cb;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 700;
   }
 }
