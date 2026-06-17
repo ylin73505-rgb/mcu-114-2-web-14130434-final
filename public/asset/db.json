@@ -2,143 +2,133 @@
   "products": [
     {
       "id": "1",
-      "name": "書籍 A",
+      "name": "A 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 10000
     },
     {
       "id": "2",
-      "name": "書籍 B",
+      "name": "B 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "3",
-      "name": "書籍 C",
+      "name": "C 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "4",
-      "name": "書籍 D",
+      "name": "D 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "5",
-      "name": "書籍 E",
+      "name": "E 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "6",
-      "name": "書籍 F",
+      "name": "F 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "7",
-      "name": "書籍 G",
+      "name": "G 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
       "id": "8",
-      "name": "書籍 H",
+      "name": "H 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000
     },
     {
-      "name": "書籍 Z",
+      "name": "I 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000,
-      "id": "H6ArPHcyB_k"
+      "id": "9"
     },
     {
-      "name": "書籍 Z",
+      "name": "J 產品",
       "authors": [
         "作者甲",
         "作者乙",
         "作者丙"
       ],
       "company": "博碩文化",
-      "isShow": true,
       "photoUrl": "https://api.fnkr.net/testimg/200x200/DDDDDD/999999/?text=img",
       "createDate": "2023-10-17T00:00:00.000+08:00",
       "price": 1000,
-      "id": "cNUv4hTfJaE"
+      "id": "10"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

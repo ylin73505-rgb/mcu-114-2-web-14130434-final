@@ -1,1 +1,48 @@
-<p>login-page works!</p>
+<form class="checkout-grid">
+  <section class="customer">
+    <h2>基本資料</h2>
+    <div class="field">
+      <label for="customer-name">姓名</label>
+      <input />
+      <span class="hint">請輸入姓名</span>
+    </div>
+    <div class="field">
+      <label for="customer-address">地址</label>
+      <input />
+      <span class="hint">請輸入地址</span>
+    </div>
+    <div class="field">
+      <label for="customer-phone">電話</label>
+      <input />
+      <span class="hint">請輸入電話</span>
+    </div>
+  </section>
+
+  <section class="cart">
+    <h2>購買項目</h2>
+    <div class="cart-list" role="list" aria-label="購買項目清單">
+      <article class="cart-row" role="listitem">
+        <div class="row-index"></div>
+
+        <div class="row-title">
+          <div class="item-name"></div>
+        </div>
+
+        <label class="qty-field" aria-label="數量">
+          <input />
+        </label>
+
+        <div class="item-price">
+          <div class="unit-price"></div>
+          <div class="line-subtotal"></div>
+        </div>
+
+        <button type="button" class="remove-btn">刪除</button>
+      </article>
+    </div>
+    <div class="cart-summary">
+      <button type="submit" class="submit-btn">送出訂單</button>
+    </div>
+    <p class="empty">購物車目前沒有商品</p>
+  </section>
+</form>
