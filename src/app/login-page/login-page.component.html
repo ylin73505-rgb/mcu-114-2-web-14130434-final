@@ -50,7 +50,7 @@
       }
     </div>
     <div class="cart-summary">
-      <button type="submit" class="submit-btn">送出訂單{{ cartService.totalAmount() | currency : '$' : 'symbol' : '4.0' }}</button>
+      <button type="submit" class="submit-btn">送出訂單({{ cartService.totalAmount() | currency : '$' : 'symbol' : '4.0' }})</button>
     </div>
     } @else {
     <p class="empty">購物車目前沒有商品</p>

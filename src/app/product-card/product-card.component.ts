@@ -1,5 +1,5 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import { Component, input, model, numberAttribute, output } from '@angular/core';
+import { Component, input, numberAttribute, output } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
